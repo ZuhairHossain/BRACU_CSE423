@@ -40,28 +40,23 @@
         * put your code here
         */
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter username");
-        String userName = myObj.nextLine();
-        if(userName.equals("1")){
-            //1
-            DDA(gl, 40,70,50,80); //1 up
-            DDA(gl, 00,00,00,00); // 1 sidebar(left)
-            DDA(gl, 40,20,60,20); // 1 ground
-            DDA(gl, 50,20,50,80); // 1 rightbar
-            DDA(gl, 00,00,00,00); //1 middle
-        }
-        else if(userName.equals("T")){
+        
+        System.out.println("Enter your Student ID");
+        int stdID = myObj.nextInt();
+        
+        if(stdID % 2 ==0){
             // output T
-            DDA(gl, -10, 0, -10, 50);
-            DDA(gl, -40, 50, 20, 50);
+            DDA(gl, -200, 100, 0, 100); 
+            DDA(gl, -100, -100, -100, 100); // T er tail
         }
-        else if(userName.equals("H")){
-            DDA(gl, -10, 0, -10, 50);
-            DDA(gl, 20, 0, 20, 50);
-            DDA(gl, -20, 25, 30, 25);
+        else if(stdID % 2 !=0){
+            // output H
+            DDA(gl, -10, -100, -10, 100); // H er left
+            DDA(gl, 100, -100, 100, 100); //H er right
+            DDA(gl, -10, 0, 100, 0); // H er middle
         }
         else{
-            System.out.println("can't operate");
+            System.out.println("wrong input");
         }
     }
 
@@ -78,58 +73,49 @@
     
     }
 
-        public void DDA(GL2 gl, float x1, float y1, float x2, float y2) {
+    public void DDA(GL2 gl, float x1, float y1, float x2, float y2) {
 
-            gl.glPointSize(3.0f);
-            gl.glColor3d(1, 0, 0);
+        gl.glPointSize(3.0f);
+        gl.glColor3d(1, 0, 0);
 
-            float dx = x2 - x1;
-            float dy = y2 - y1;
+        float dx = x2 - x1;
+        float dy = y2 - y1;
 
-            if(dx < 0 )
-            {
-            
+        if(dx < 0 ){
             dx=dx*-1;
-            }
+        }
+        if(dy < 0){
+            dy = dy*-1;
+        }
 
-            if(dy < 0)
-            {
-            
-                dy = dy*-1;
-            }
+        int R;
 
-            int R;
-        
-            if(dx>dy)
-            {
-            
-            R = Math.round(dx);
-            }
-            else
-            {
-            
-            R = Math.round(dy);
-            }
+        if(dx>dy){
+        R = Math.round(dx);
+        }
+        else{
+        R = Math.round(dy);
+        }
 
-            float stepUpX = dx/R;
-            float stepUpY = dy/R;
-        
-            float x = x1;
-            float y = y1;
-        
-            for (int a = 0, j=0; a<R ; a++,j++){
-                //for dotted lines
-                if(j==7){
-                    j=0;
-                }
-                if(j<2){
-                    gl.glBegin(GL2.GL_POINTS);
-                    gl.glVertex2d(x , y);
-                    gl.glEnd();
-                }
-                x = x + stepUpX;
-                y = y + stepUpY;
+        float stepUpX = dx/R;
+        float stepUpY = dy/R;
+    
+        float x = x1;
+        float y = y1;
+    
+        for (int a = 0, j=0; a<R ; a++,j++){
+            //for dotted lines
+            if(j==7){
+                j=0;
             }
+            if(j<2){
+                gl.glBegin(GL2.GL_POINTS);
+                gl.glVertex2d(x , y);
+                gl.glEnd();
+            }
+            x = x + stepUpX;
+            y = y + stepUpY;
+        }
         }
 
     }
