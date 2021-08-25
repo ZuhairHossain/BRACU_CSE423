@@ -7,7 +7,7 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
 import javax.swing.JFrame;
 
-public class Lab02_Task02 implements GLEventListener {
+public class Lab02_Task01 implements GLEventListener {
 
     private GLU glu;
 
@@ -32,7 +32,7 @@ public class Lab02_Task02 implements GLEventListener {
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 
         // points should be in the same zone
-        /**
+        
         // for 7
         DrawMPL(gl, 0, 0, 50, 0);
         DrawMPL(gl, 50, 0, 0, -50);
@@ -40,17 +40,9 @@ public class Lab02_Task02 implements GLEventListener {
         // for 3
         DrawMPL(gl, 70, 0, 120, 0);
         DrawMPL(gl, 70, -50, 120, -50);
-        DrawMPL(gl, 121, 0, 121, -50); // straight line is not working
+        DrawMPL(gl, 119, 0, 120, -50); // straight line is not working
         DrawMPL(gl, 85, -25, 120, -25);
-         */
-        DrawMPL(gl, -40, -20, 40, -20); //nicher pata ton
-        DrawMPL(gl, -50, 0, 50, 0); // pata ton er uporer ta
-        DrawMPL(gl, -40, -20, -50, 0); // left
-        DrawMPL(gl, 40, -20, 50, 0);  // right
-        DrawMPL(gl, -1, 0, 0, 80);      // jhandar majher ta
-        DrawMPL(gl, 0, 80, 40, 0);      // pal er right
-        DrawMPL(gl, 0, 60, -35, 0);     // pal er left
-        
+
     }
 
     @Override
@@ -290,7 +282,7 @@ public class Lab02_Task02 implements GLEventListener {
         GLCapabilities capabilities = new GLCapabilities(profile);
         // The canvas
         final GLCanvas glcanvas = new GLCanvas(capabilities);
-        Lab02_Task02 l = new Lab02_Task02();
+        Lab02_Task01 l = new Lab02_Task01();
         glcanvas.addGLEventListener(l);
         glcanvas.setSize(1000, 1000);
         // creating frame
