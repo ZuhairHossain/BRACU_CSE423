@@ -24,7 +24,7 @@ public class Lab02_Task01 implements GLEventListener {
 
     /**
      * Take care of drawing here.
-    **/
+     **/
     @Override
     public void display(GLAutoDrawable drawable) {
         GL2 gl = drawable.getGL().getGL2();
@@ -32,7 +32,7 @@ public class Lab02_Task01 implements GLEventListener {
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 
         // points should be in the same zone
-        
+
         // for 7
         DrawMPL(gl, 0, 0, 50, 0);
         DrawMPL(gl, 50, 0, 0, -50);
@@ -40,7 +40,7 @@ public class Lab02_Task01 implements GLEventListener {
         // for 3
         DrawMPL(gl, 70, 0, 120, 0);
         DrawMPL(gl, 70, -50, 120, -50);
-        DrawMPL(gl, 119, 0, 120, -50); // straight line is not working
+        DrawMPL(gl, 120, 0, 120, -50);
         DrawMPL(gl, 85, -25, 120, -25);
 
     }
@@ -114,15 +114,15 @@ public class Lab02_Task01 implements GLEventListener {
         int dx = x2 - x1;
 
         if (Math.abs(dx) > Math.abs(dy)) {
-            if (dx > 0 && dy > 0) {
+            if (dx >= 0 && dy >= 0) {
                 zone = 0;
             }
 
-            else if (dx < 0 && dy > 0) {
+            else if (dx <= 0 && dy >= 0) {
                 zone = 3;
             }
 
-            else if (dx < 0 && dy < 0) {
+            else if (dx <= 0 && dy <= 0) {
                 zone = 4;
             }
 
@@ -133,19 +133,19 @@ public class Lab02_Task01 implements GLEventListener {
         }
 
         else {
-            if (dx > 0 && dy > 0) {
+            if (dx >= 0 && dy >= 0) {
                 zone = 1;
             }
 
-            else if (dx < 0 && dy > 0) {
+            else if (dx <= 0 && dy >= 0) {
                 zone = 2;
             }
 
-            else if (dx < 0 && dy < 0) {
+            else if (dx <= 0 && dy <= 0) {
                 zone = 5;
             }
 
-            else if (dx > 0 && dy < 0) {
+            else if (dx >= 0 && dy <= 0) {
                 zone = 6;
             }
         }

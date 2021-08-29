@@ -24,7 +24,7 @@ public class Lab02_Task02 implements GLEventListener {
 
     /**
      * Take care of drawing here.
-    **/
+     **/
     @Override
     public void display(GLAutoDrawable drawable) {
         GL2 gl = drawable.getGL().getGL2();
@@ -32,25 +32,15 @@ public class Lab02_Task02 implements GLEventListener {
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 
         // points should be in the same zone
-        /**
-        // for 7
-        DrawMPL(gl, 0, 0, 50, 0);
-        DrawMPL(gl, 50, 0, 0, -50);
 
-        // for 3
-        DrawMPL(gl, 70, 0, 120, 0);
-        DrawMPL(gl, 70, -50, 120, -50);
-        DrawMPL(gl, 121, 0, 121, -50); // straight line is not working
-        DrawMPL(gl, 85, -25, 120, -25);
-         */
-        DrawMPL(gl, -40, -20, 40, -20); //nicher pata ton
+        DrawMPL(gl, -40, -20, 40, -20); // nicher pata ton
         DrawMPL(gl, -50, 0, 50, 0); // pata ton er uporer ta
         DrawMPL(gl, -40, -20, -50, 0); // left
-        DrawMPL(gl, 40, -20, 50, 0);  // right
-        DrawMPL(gl, -1, 0, 0, 80);      // jhandar majher ta
-        DrawMPL(gl, 0, 80, 40, 0);      // pal er right
-        DrawMPL(gl, 0, 60, -35, 0);     // pal er left
-        
+        DrawMPL(gl, 40, -20, 50, 0); // right
+        DrawMPL(gl, 0, 0, 0, 80); // jhandar majher ta
+        DrawMPL(gl, 0, 80, 40, 0); // pal er right
+        DrawMPL(gl, 0, 60, -35, 0); // pal er left
+
     }
 
     @Override
@@ -122,38 +112,38 @@ public class Lab02_Task02 implements GLEventListener {
         int dx = x2 - x1;
 
         if (Math.abs(dx) > Math.abs(dy)) {
-            if (dx > 0 && dy > 0) {
+            if (dx >= 0 && dy >= 0) {
                 zone = 0;
             }
 
-            else if (dx < 0 && dy > 0) {
+            else if (dx <= 0 && dy >= 0) {
                 zone = 3;
             }
 
-            else if (dx < 0 && dy < 0) {
+            else if (dx <= 0 && dy <= 0) {
                 zone = 4;
             }
 
-            else if (dx > 0 && dy < 0) {
+            else if (dx >= 0 && dy <= 0) {
                 zone = 7;
             }
 
         }
 
         else {
-            if (dx > 0 && dy > 0) {
+            if (dx >= 0 && dy >= 0) {
                 zone = 1;
             }
 
-            else if (dx < 0 && dy > 0) {
+            else if (dx <= 0 && dy >= 0) {
                 zone = 2;
             }
 
-            else if (dx < 0 && dy < 0) {
+            else if (dx <= 0 && dy <= 0) {
                 zone = 5;
             }
 
-            else if (dx > 0 && dy < 0) {
+            else if (dx >= 0 && dy <= 0) {
                 zone = 6;
             }
         }
